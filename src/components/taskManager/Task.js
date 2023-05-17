@@ -1,6 +1,6 @@
 import React from 'react'
-import { FaCheckDouble, FaEdit, FaTrashAlt } from 'react-icons/fa'
-const Task = ({id,name,date,user,complete, editTask, deleteTask}) => {
+
+const Task = ({id,name,date,user,complete, editTask, deleteTask, completeTask}) => {
     return (
         <div  key={id} className={complete ? "task complete" :"task"}>
             <span>
@@ -16,8 +16,8 @@ const Task = ({id,name,date,user,complete, editTask, deleteTask}) => {
             <span>
                 
                     <div className=' flex align-items-center '>
-                        <button  className='btn btn-warning my-1'>
-                            <i className='fa fa-eye' />
+                        <button onClick={() => completeTask(id)} className='btn btn-warning my-1'>
+                            <i className='fa fa-check-square' />
                         </button >
                         <button onClick={()=>editTask(id)} className='btn btn-primary my-1'>
                             <i className='fa fa-pen' />

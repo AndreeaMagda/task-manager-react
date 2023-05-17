@@ -89,6 +89,9 @@ form.form input {
 
   --color-primary: #007bff;
   --color-success: #28a745;
+
+
+  --color-violet: #b077d1;
 }
 
 * {
@@ -265,6 +268,10 @@ p {
   color: #fff;
 }
 
+.--color-violet {
+  color: #b077d1;
+}
+
 /* Center Text */
 .--text-center {
   text-align: center;
@@ -403,6 +410,9 @@ p {
 }
 .--bg-grey {
   background: var(--color-grey);
+}
+.--bg-grey {
+  background: var(--color-violet);
 }
 
 .--form-control {

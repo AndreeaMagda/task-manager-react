@@ -68,8 +68,19 @@ const TaskManager = () => {
       setTasks(newTasks);
     }
   };
+
+  const completeTask = (id) => {
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === id) {
+          return { ...task, complete: true };
+        }
+        return task;
+      })
+    );
+  };
   return (
-    <div className='--bg-primary' >
+    <div className='--bg-dark' >
       <h1 className='--text-center --text-light'>TaskManager</h1>
       <div className='--flex-center --p'>
         <div className='--card --bg-light --width-500px --p --flex-center'>
@@ -99,7 +110,7 @@ const TaskManager = () => {
           <h3 className='--text-light'>Tasks Lists</h3>
           <hr className={{ background: '#fff' }} />
           {tasks.length === 0 ? (
-            <p className='--text '> no task</p>
+            <p className='--text-light '> no task</p>
           ) : (
             <div className='--text-dark'>
               {tasks.map((task) => {
@@ -108,6 +119,7 @@ const TaskManager = () => {
                     {...task}
                     editTask={editTask}
                     deleteTask={deleteTask}
+                    completeTask={completeTask}
                    
                   />
                 );
