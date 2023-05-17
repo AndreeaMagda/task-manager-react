@@ -1,11 +1,17 @@
 import React from 'react'
 import { FaCheckDouble, FaEdit, FaTrashAlt } from 'react-icons/fa'
-const Task = () => {
+const Task = ({id,name,date,user,complete}) => {
     return (
-        <div className='task'>
+        <div  key={id} className={complete ? "task complete" :"task"}>
             <span>
-                <p><strong>Task:</strong>Task one</p>
-                <p><strong>Data:</strong>2023-05-17</p>
+              
+
+                <p><strong>User:</strong>
+                {user}</p>
+                <p><strong>Task:</strong>
+                {name}</p>
+                <p><strong>Date:</strong>
+                {date}</p>
             </span>
             <span>
                 

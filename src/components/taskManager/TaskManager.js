@@ -1,7 +1,8 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState} from 'react';
 import Task from "./Task";
 import "./TaskManager.css";
+import './Task';
 
 const TaskManager = () => {
   const[user, setUser]=useState("")
@@ -9,10 +10,26 @@ const TaskManager = () => {
   const[date, setDate]=useState("")
   const[tasks, setTasks]=useState([])
 
+
+
   const handleSubmit=(e) => {
     e.preventDefault();
-       console.log(name);
-       console.log(date);
+     if(!name && !date || !name || !date){
+      alert("Please enter a username, task name and date")
+     }
+     else {
+      const newTask={
+        id: Date.now(),
+        name,
+        date,
+        user,
+        complete:false
+      }
+    setTasks([...tasks, newTask])
+    setName("")
+    setDate("")
+    setUser("")
+     }
   };
 
   return (
@@ -44,7 +61,17 @@ const TaskManager = () => {
 <div className='--width-500px --p'>
   <h3 className='--text-light'>Tasks Lists</h3>
   <hr className={{background:'#fff'}}/>
-<Task/>
+  {tasks.length === 0 ?(
+  <p className='--text '> no task</p>
+  ):(
+    <div className='--text-dark'> 
+{tasks.map((task)=>{
+  return ( <><Task {...task}/>  </> )
+  
+})}
+</div>
+  )}
+
 
 </div>
 
