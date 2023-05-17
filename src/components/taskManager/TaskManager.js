@@ -3,6 +3,7 @@ import { useState} from 'react';
 import Task from "./Task";
 import "./TaskManager.css";
 import './Task';
+import { editableInputTypes } from '@testing-library/user-event/dist/utils';
 
 const TaskManager = () => {
   const[user, setUser]=useState("")
@@ -10,14 +11,31 @@ const TaskManager = () => {
   const[date, setDate]=useState("")
   const[tasks, setTasks]=useState([])
 
+  const[taskID, setTaskID]=useState(null)
+  const[isEditing, setIsEditing]=useState(false);
+
+
 
 
   const handleSubmit=(e) => {
-    e.preventDefault();
-     if(!name && !date || !name || !date){
-      alert("Please enter a username, task name and date")
-     }
-     else {
+    if ((!name && !date && !user) || !name || !date) {
+      alert("Please enter task name and date");
+    } else if (name && date && user && isEditing) {
+      setTasks(
+        tasks.map((task) => {
+          if (task.id === taskID) {
+            return { ...task, name, date,user, complete: false };
+          }
+          return tasks;
+        })
+      );
+      setName("");
+      setDate("");
+      setUser("");
+      setIsEditing(false);
+      setTaskID(null);
+    }
+ else {
       const newTask={
         id: Date.now(),
         name,
@@ -31,6 +49,16 @@ const TaskManager = () => {
     setUser("")
      }
   };
+
+  const editTask = (id) => {
+   const thisTask=tasks.find((task)=>task.id === id)
+   setIsEditing(true);
+   setTaskID(id);
+   setUser(thisTask.user);
+   setName(thisTask.name);
+   setDate(thisTask.date);
+
+  }
 
   return (
     <div className='--bg-primary' >
@@ -66,7 +94,14 @@ const TaskManager = () => {
   ):(
     <div className='--text-dark'> 
 {tasks.map((task)=>{
-  return ( <><Task {...task}/>  </> )
+  return ( <><Task {...task} 
+    editTask={editTask}
+  
+  /> ;
+  
+  
+  
+   </> )
   
 })}
 </div>
