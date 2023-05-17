@@ -1,42 +1,77 @@
 body {
-    background-color: var(--color-primary);
-    overflow: hidden;
-    /* avoid min-height to prevent glitches on css animation */
-  }
-  form.form input {
-    width: 73%;
-  }
-  .task {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background-color: var(--color-grey);
-    padding: 1rem;
-    margin: 1rem;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-  }
-  .complete {
-    position: relative;
-    background-color: #fff;
-    border-left: 5px solid orangered;
-  }
-  
-  .complete::after {
-    content: "Completed";
-    position: absolute;
-    right: 1rem;
-    bottom: 3px;
-    background-color: orangered;
-    color: #fff;
-    padding: 2px;
-    border-radius: 3px;
-  }
-  
+  background-color: var(--color-primary);
+  overflow: hidden;
+  /* avoid min-height to prevent glitches on css animation */
+}
+form.form input {
+  width: 73%;
+}
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: var(--color-grey);
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+.complete {
+  position: relative;
+  background-color: #fff;
+  border-left: 5px solid orangered;
+}
 
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.complete::after {
+  content: "Completed";
+  position: absolute;
+  right: 1rem;
+  bottom: 3px;
+  background-color: orangered;
+  color: #fff;
+  padding: 2px;
+  border-radius: 3px;
+}
+body {
+  background-color: var(--color-primary);
+  overflow: hidden;
+  /* avoid min-height to prevent glitches on css animation */
+}
+form.form input {
+  width: 73%;
+}
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: var(--color-grey);
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+.complete {
+  position: relative;
+  background-color: #fff;
+  border-left: 5px solid orangered;
+}
+
+.complete::after {
+  content: "Completed";
+  position: absolute;
+  right: 1rem;
+  bottom: 3px;
+  background-color: orangered;
+  color: #fff;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
   --font-family: "Poppins", sans-serif;
@@ -51,7 +86,6 @@ body {
 
   --color-purple: #9d0191;
   --color-orange: #ff7722;
-  --color-violet:#8c79d1;
 
   --color-primary: #007bff;
   --color-success: #28a745;
@@ -231,11 +265,6 @@ p {
   color: #fff;
 }
 
-.--color-violet {
-  color: #b188f1;
-}
-
-
 /* Center Text */
 .--text-center {
   text-align: center;
@@ -375,10 +404,6 @@ p {
 .--bg-grey {
   background: var(--color-grey);
 }
-.--bg-violet {
-    background: var(--color-violet);
-}
-  
 
 .--form-control {
   font-size: 1.6rem;
